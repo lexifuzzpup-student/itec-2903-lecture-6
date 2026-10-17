@@ -1,0 +1,16 @@
+from dotenv import load_dotenv
+from google import genai
+
+load_dotenv()
+
+client = genai.Client()
+response = client.models.generate_content(
+    model = "gemini-3.8-flash",
+    contents = """
+    We're a starting business that has a platform where
+    people can share events with other Minneapolis locals.
+    What are some ways to advertise our service?
+    """
+)
+
+print(response.text)
